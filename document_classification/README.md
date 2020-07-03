@@ -4,8 +4,10 @@ This example includes scripts to train document classifier, and predict classes 
 
 Both multiclass and multi-label classifications are supported.
 
-This example refers to both [Keras Tutorial](https://keras.io/examples/nlp/text_classification_from_scratch/) 
-and [Large Movie Review Dataset](https://ai.stanford.edu/~amaas/data/sentiment/)
+Both [Keras Tutorial](https://keras.io/examples/nlp/text_classification_from_scratch/) 
+and [Large Movie Review Dataset](https://ai.stanford.edu/~amaas/data/sentiment/) are referred to.
+
+**This example is NOT optimized, so please do not use it for production usage.**
 
 ### Prerequisites
 - Tensorflow 2.2
