@@ -12,21 +12,14 @@ class DataIO:
         def _load(sub_data_path):
             texts = []
             labels = []
-#             count = 0
             for file in glob.glob(os.path.join(sub_data_path, "neg/*.txt")):
                 with open(file) as f:
                     texts.append(f.read())
                     labels.append(0)
-#                     count += 1
-#                     if count >= 1000:
-#                         break
             for file in glob.glob(os.path.join(sub_data_path, "pos/*.txt")):
                 with open(file) as f:
                     texts.append(f.read())
                     labels.append(1)
-#                     count += 1
-#                     if count >= 2000:
-#                         break
             texts, labels = self.shuffle(texts, labels)
             text_ds = tf.data.Dataset.from_tensor_slices(texts)
             label_ds = tf.data.Dataset.from_tensor_slices(labels)
@@ -53,7 +46,6 @@ class DataIO:
             label_map = {}
         texts = []
         labels = []
-#         label_map = {}
         with open(file) as f:
             reader = csv.reader(f)
             header = next(reader)

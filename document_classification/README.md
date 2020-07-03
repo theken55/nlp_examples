@@ -1,8 +1,10 @@
 # Document classification
 
-This example includes scripts to classify documents. 
+This example includes scripts to train document classifier, and predict classes of documents using trained models.
 
-In this example, I refer to [Keras Tutorial](https://keras.io/examples/nlp/text_classification_from_scratch/) 
+Both multiclass and multi-label classifications are supported.
+
+This example refers to both [Keras Tutorial](https://keras.io/examples/nlp/text_classification_from_scratch/) 
 and [Large Movie Review Dataset](https://ai.stanford.edu/~amaas/data/sentiment/)
 
 ### Prerequisites

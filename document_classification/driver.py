@@ -33,6 +33,7 @@ if mode == 'train':
     elif data_path.endswith(".csv"):
         train_ds, test_ds, label_map = dio.load_csv(data_path, batch_size, is_one_hot=True)
     else:
+        print("unsupported data_path:%s" % data_path)
         sys.exit(1)
     
     text_ds = train_ds.map(lambda x, y: x)
@@ -63,6 +64,7 @@ elif mode == 'predict':
         mm = modelm.MultiLabelModel()
         model, label_map = mm.load(model_path)
     else:
+        print("unsupported network:%d" % NETWORK)
         sys.exit(1)
     
     # predict raw documents
@@ -71,6 +73,9 @@ elif mode == 'predict':
         train_ds, test_ds, _ = dio.load(data_path)
     elif data_path.endswith(".csv"):
         train_ds, test_ds, _ = dio.load_csv(data_path, label_map=label_map)
+    else:
+        print("unsupported data_path:%s" % data_path)
+        sys.exit(1)
     
     label_map_inv = {v: k for k, v in label_map.items()}
     print_ds(test_ds)
@@ -111,5 +116,5 @@ elif mode == 'predict':
             print(exp)
             print(act)
 else:
-    pass
+    print("unsupported mode:%s" % mode)
 
