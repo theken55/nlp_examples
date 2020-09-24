@@ -13,11 +13,11 @@ class DataIO:
             texts = []
             labels = []
             for file in glob.glob(os.path.join(sub_data_path, "neg/*.txt")):
-                with open(file) as f:
+                with open(file, encoding='utf-8') as f:
                     texts.append(f.read())
                     labels.append(0)
             for file in glob.glob(os.path.join(sub_data_path, "pos/*.txt")):
-                with open(file) as f:
+                with open(file, encoding='utf-8') as f:
                     texts.append(f.read())
                     labels.append(1)
             texts, labels = self.shuffle(texts, labels)
@@ -46,7 +46,7 @@ class DataIO:
             label_map = {}
         texts = []
         labels = []
-        with open(file) as f:
+        with open(file, encoding='utf-8') as f:
             reader = csv.reader(f)
             header = next(reader)
             for row in reader:
